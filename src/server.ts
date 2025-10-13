@@ -1,15 +1,14 @@
 import fastify from "fastify";
-import { db } from "./database.js";
-import crypto from 'node:crypto'
 import { env } from "../env/index.js";
 import { transactionsRoutes } from "./routes/transaction.js";
 
 const app = fastify();
 
-app.register(transactionsRoutes)
+app.register(transactionsRoutes, {
+  prefix: 'transactions'
+})
 
-app
-  .listen({
+app.listen({
     port: env.PORT,
   })
   .then(() => {
