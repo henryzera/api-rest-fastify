@@ -23,8 +23,14 @@ export async function transactionsRoutes(app: FastifyInstance){
 
         const transaction = await db('transactions')
             .where('id', id).first()
-            
+
         return transaction
+    })
+
+    app.get('/sumary', async(req, res)=>{
+        const sumary = await db('transactions').sum('amount', { as: 'amount'}).first()
+
+        return {sumary}
     })
     
     app.post("/", async (req, res) => {
