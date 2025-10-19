@@ -44,7 +44,7 @@ export async function transactionsRoutes(app: FastifyInstance){
             res.send('Página inacessível...')
         }
 
-        return transaction
+        return {transaction}
     })
 
     app.get('/sumary', {
