@@ -6,7 +6,7 @@
     "dev": "tsx watch src/server.ts",
     "knex": "node --import tsx ./node_modules/.bin/knex",
     "test": "vitest",
-    "build": "tsup src"
+    "build": "tsup src --format esm"
   },
   "type": "module",
   "keywords": [],
